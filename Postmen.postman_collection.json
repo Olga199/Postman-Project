@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "fe23284e-7517-4d64-9079-3d61d25c7928",
+		"name": "Postmen",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Postmen",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4bddff67-5e8b-4f6c-9356-9f5a3ba4c4e1",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 200",
+							"",
+							"ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(20",
+							"    ",
+							"    );",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://tut.by",
+					"protocol": "https",
+					"host": [
+						"tut",
+						"by"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
