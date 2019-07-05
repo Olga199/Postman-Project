@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Postmen",
+			"name": "tut.by",
 			"event": [
 				{
 					"listen": "test",
@@ -16,12 +16,9 @@
 							"pm.test(\"Status code is 200\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							"pm.test(\"Response time is less than 200",
+							"pm.test(\"Response time is less than \" + pm.environment.get(\"response_lt\") + \" ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(+pm.environment.get(\"response_lt\"));",
 							"",
-							"ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(20",
-							"    ",
-							"    );",
 							"});"
 						],
 						"type": "text/javascript"
@@ -36,6 +33,40 @@
 					"protocol": "https",
 					"host": [
 						"tut",
+						"by"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "onliner",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c801d73-4f31-4022-84e8-3d0b18b3a4f9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than \" + pm.environment.get(\"response_lt\") + \" ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(+pm.environment.get(\"response_lt\"));",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://onliner.by",
+					"protocol": "https",
+					"host": [
+						"onliner",
 						"by"
 					]
 				}
